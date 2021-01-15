@@ -1,0 +1,82 @@
+﻿@page "{id:int}"
+@model VehicleModel
+@{ Layout = "_LayoutEmpty"; ViewBag.Title = "Vehicle"; ViewBag.Style = "/static/css/styleVehicle.css"; }
+
+
+<div class="container">
+    <div class="image-box">
+        <div class="left-arrow">
+            <img src="/static/pics/back.svg" alt="Prethodna">
+        </div>
+        <div id="vehicle-images" class="images"></div>
+        <div class="right-arrow">
+            <img src="/static/pics/next.svg" alt="Sledeca">
+        </div>
+    </div>
+
+    <div class="info-container">
+        <div class="info-container-up">
+            <h1 id="vehicle-name"></h1>
+			
+			<div class="wrap">
+				<div id="vehicle-price" class="price"></div>
+				<div id="order-button" page="/Order/@ViewContext.RouteData.Values["id"]" class="btn-order">Poruči</div>
+			</div>
+
+        </div>
+
+        <div class="line"></div>
+
+		<div class="info-container-down">
+			<div class="box">
+				<h3>Tehnički podaci:</h3>
+
+				<p id="vehicle-cubic-capacity" class="info-p">Zapremina motora:</p>
+				<p id="vehicle-horse-power" class="info-p">Snaga motora:</p>
+				<p id="vehicle-type" class="info-p">Tip vozila: </p>
+				<p id="vehicle-fuel" class="info-p">Gorivo: </p>
+				<p id="vehicle-milage" class="info-p">Kilometraza</p>
+			</div>
+
+			<div class="box">
+				<h3>Dodaci:</h3>
+
+				<p id="vehicle-cruise-control" class="info-p">Tempomat</p>
+				<p id="vehicle-parking-sensors" class="info-p">Parking senzor</p>
+				<p id="vehicle-electric-windows" class="info-p">Elektricni prozori</p>
+				<p id="vehicle-sunroof" class="info-p">Siber</p>
+				<p id="vehicle-xenon-headlights" class="info-p">Xenon farovi</p>
+				<p id="vehicle-multimedia" class="info-p">Multimedija</p>
+				<p id="vehicle-power-steering" class="info-p">Servo volan</p>
+				<p id="vehicle-navigation" class="info-p">Navigacija</p>
+				<p id="vehicle-air-conditioning" class="info-p">Klima</p>
+			</div>
+
+			<div class="box">
+				<h3>Sigurnost: </h3>
+
+				<p id="vehicle-airbag" class="info-p">Airbag</p>
+				<p id="vehicle-esp" class="info-p">ESP</p>
+				<p id="vehicle-asr" class="info-p">ASR</p>
+				<p id="vehicle-childlock" class="info-p">Childlock</p>
+				<p id="vehicle-immobiliser" class="info-p">Blokada motora</p>
+				<p id="vehicle-central-locking" class="info-p">Centralno zakljucavanje</p>
+			</div>
+		</div>
+        <div class="description-box">
+            <h3>Opis vozila: </h3>
+            <p id="vehicle-description" class="info-p"></p>
+        </div>
+
+        <div class="nav-back">
+            <img src="/static/pics/undo.svg" alt="Nazad" onclick="history.back()">
+        </div>
+    </div>
+</div>
+
+<script>
+	logged_out(() => {
+		$('#order-button').style.display = 'none'
+	})
+	get_vehicle(@ViewContext.RouteData.Values["id"])
+</script>

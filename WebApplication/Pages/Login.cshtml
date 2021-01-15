@@ -1,0 +1,39 @@
+﻿@page
+@model LoginModel
+@{ Layout = "_LayoutEmpty"; ViewBag.Title = "Prijavi se"; ViewBag.Style = "/static/css/styleLoginRegister.css"; }
+
+<script>
+	logged_in(() => {
+		history.back()
+	})
+</script>
+
+
+<div class="wrapper">
+	<div class="left">
+		<img src="/static/pics/logo.svg" alt="">
+		<h1>Pronađi pravi auto za sebe, <span>KOD NAS</span>!</h1>
+	</div>
+
+	<div class="right">
+		<h2>Prijavi se</h2>
+
+		<form action="javascript:;" onsubmit="login()" id="login-form">
+			<label for="email">E-mail:</label>
+			<input type="email" name="email" id="email" required autofocus>
+
+			<label for="password">Šifra:</label>
+			<input type="password" name="password" id="password" required>
+
+			<label id="result-message">&nbsp;</label>
+		</form>
+
+		<div class="right-bottom">
+			<button type="submit" form="login-form">Prijavi se</button>
+			<div class="info-wrap">
+				<p>Nemaš nalog?</p>
+				<a asp-page="/Register">Registruj se</a>
+			</div>
+		</div>
+	</div>
+</div>

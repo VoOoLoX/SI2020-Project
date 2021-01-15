@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{ Layout = "_LayoutEmpty"; ViewBag.Title = "Početna"; ViewBag.Style = "/static/css/styleIndex.css"; }
+
+<header>
+	<button id="btn-login" page="/Login" class="btn-white">Prijavi se</button>
+	<button id="btn-register" page="/Register">Registruj se</button>
+	<button id="btn-logout" onclick="logout()">Odjavi se</button>
+</header>
+
+<main class="container">
+	<h1 class="moto-text">Pronađi <span>pravi auto</span> za tebe</h1>
+
+	<div id="vehicles" class="cards"></div>
+
+	<button page="/Browse">Prikaži vise</button>
+</main>
+
+<script>
+	index_vehicles()
+
+	logged_in(() => {
+		$('#btn-login').style.display = 'none'
+		$('#btn-register').style.display = 'none'
+		$('#btn-logout').style.display = 'block'
+	})
+</script>

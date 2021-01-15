@@ -1,0 +1,88 @@
+﻿header {
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 5%;
+}
+
+#btn-logout {
+	display: none;
+}
+
+.moto-text {
+	font-family: 'Comfortaa', cursive;
+	font-weight: bold;
+	color: #1F3A46;
+	text-align: center;
+	font-size: 4.5em;
+	margin: 0.5em 0;
+}
+
+.moto-text span {
+	color: #06BEB6;
+}
+
+.cards {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 40px;
+	justify-items: center;
+	align-items: center;
+	min-height: 400px;
+	margin-bottom: 1em;
+}
+
+@media screen and (max-width: 1400px) {
+	.card {
+		width: 280px;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	header {
+		justify-content: center;
+		padding-right: 0;
+	}
+
+	.moto-text {
+		font-size: 3.5em;
+	}
+
+	.cards {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.card {
+		width: 350px;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	button {
+		margin: 0.8em 0.5em;
+		padding: 10px 1em;
+	}
+
+	.moto-text {
+		font-size: 3em;
+		margin: 1em 0;
+	}
+
+	.cards {
+		grid-template-columns: 1fr;
+	}
+
+	.card {
+		width: 320px;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	.moto-text {
+		font-size: 2.5em;
+	}
+
+	.card {
+		width: 280px;
+	}
+}

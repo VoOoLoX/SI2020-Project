@@ -1,0 +1,54 @@
+﻿@page
+@model BrowseModel
+@{ Layout = "_LayoutEmpty"; ViewBag.Title = "Katalog"; ViewBag.Style = "/static/css/styleBrowse.css"; }
+
+<div class="wrapper flex">
+	<aside class="sidebar container">
+		<div class="sidebar-logo container">
+			<img id="logo" src="/static/pics/logo.svg" alt="Logo" onclick="location.href='/'"/>
+		</div>
+
+		<form id="filter-form" class="container" onsubmit="event.preventDefault()">
+			<input type="text" name="manufacturer" id="manufacturer" placeholder="Proizvođač">
+			<input type="text" name="model" id="model" placeholder="Model">
+
+			<div class="flex">
+				<input type="number" onkeypress="return this.value.length<4" name="price_start" id="price_start" placeholder="Cena od: ">
+				<input type="number" onkeypress="return this.value.length<4" name="price_end" id="price_end" placeholder="Cena do: ">
+			</div>
+
+			<div class="flex">
+				<input type="number" onkeypress="return this.value.length<4" name="year_start" id="year_start" placeholder="Godiste od: ">
+				<input type="number" onkeypress="return this.value.length<4" name="year_end" id="year_end" placeholder="Godiste do: ">
+			</div>
+
+			<button class="btn-submit" onclick="browse_vehicles()">Potvrdi</button>
+		</form>
+
+		<div class="sidebar-bottom container">
+			<button page="/Login">Prijavi se</button>
+			<button page="/Register">Registruj se</button>
+		</div>
+	</aside>
+
+	<main class="content container">
+		<div class="sort-bar flex">
+			<h3 id="results"></h3>
+			<select id="sort" onchange="browse_vehicles()">
+				<option value="price_desc">Cena opadajuća</option>
+				<option value="price_asc">Cena rastuća</option>
+				<option value="year_desc">Godina opadajuća</option>
+				<option value="year_asc">Godina rastuća</option>
+			</select>
+		</div>
+		<div id="vehicles" class="cards"></div>
+	</main>
+</div>
+
+<script>
+	browse_vehicles()
+
+	logged_in(() => {
+		$('.sidebar-bottom').style.display = 'none'
+	})
+</script>

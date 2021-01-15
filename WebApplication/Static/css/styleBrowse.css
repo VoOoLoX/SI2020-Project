@@ -1,0 +1,133 @@
+﻿input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
+	border: 1px solid #437F99;
+	background: transparent;
+	border-radius: 20px;
+	padding: 10px;
+	width: 100%;
+	margin: 5px 0;
+	font-family: 'Comfortaa', cursive;
+	color: white;
+	transition: 0.5s all;
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus {
+	border: 1px solid #06BEB6;
+	color: white;
+	outline: none;
+}
+
+input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover, input[type="number"]:hover {
+	border: 1px solid #06BEB6;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+
+.wrapper {
+	height: 100vh;
+}
+
+.sidebar {
+	max-width: 300px;
+	min-width: 300px;
+	height: 100vh;
+	justify-content: flex-start;
+	background: linear-gradient(to bottom, #0F2027, #203A43, #2C5364);
+	padding: 20px;
+	box-shadow: 7px 0px 4px 0px rgba(44,83,100,0.30);
+}
+
+#logo {
+	width: 100%;
+	height: 100%;
+}
+
+.content {
+	width: 100%;
+	overflow-y: scroll;
+	justify-content: flex-start;
+}
+
+.sidebar-bottom {
+	color: white;
+	font-family: 'Comfortaa', cursive;
+	margin-top: auto;
+}
+
+.cards {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 40px;
+	justify-items: center;
+	align-items: center;
+	margin: 0 0 5em 0;
+}
+
+.flex input:first-child {
+	margin-right: 5px;
+}
+
+.flex input:last-child {
+	margin-left: 5px;
+}
+
+.sort-bar {
+	width: 100%;
+	padding: 2em 4em;
+	align-items: center;
+}
+
+#results {
+	font-family: 'Comfortaa', cursive;
+	justify-self: flex-start;
+	margin-right: auto;
+}
+
+#sort {
+	height: 3em;
+	justify-self: flex-end;
+}
+
+@media screen and (max-width: 1300px) {
+	.wrapper {
+		flex-direction: column;
+		height: inherit;
+	}
+	.sidebar {
+		min-width: initial;
+		max-width: initial;
+		height: initial;
+		padding: 0;
+	}
+	#logo {
+		width: 50%;
+		height: 50%;
+	}
+	.sidebar-bottom {
+		flex-direction: row;
+		order: -1;
+	}
+	.content {
+		overflow-y: auto;
+	}
+	.cards {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+
+@media screen and (max-width: 800px) {
+	.cards {
+		grid-template-columns: 1fr;
+	}
+	.sort-bar {
+		padding: 2em 0.5em;
+	}
+}
